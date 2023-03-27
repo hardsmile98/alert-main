@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es6",
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitThis": false,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "mytheme/*": ["mytheme/*"],
+      "assets/*": ["assets/*"],
+      "models/*": ["models/*"],
+      "constants/*": ["constants/*"],
+      "pages/*": ["pages/*"],
+      "utils/*": ["utils/*"],
+      "store/*": ["store/*"],
+      "api/*": ["api/*"],
+    }
+  },
+  "include": ["src", "server", "declaration.d.ts"],
+  "exclude": ["node_modules"]
+}
