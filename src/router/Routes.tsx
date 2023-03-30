@@ -19,6 +19,7 @@ function Routes() {
   const dispatch = useDispatch();
 
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
+  console.log(isAuth);
 
   const {
     isLoading,
@@ -38,7 +39,7 @@ function Routes() {
   return (
     <Suspense fallback={<Loader />}>
       <BrowserRouter>
-        {isAuth ? (
+        {false ? (
           <Layout>
             <Switch>
               <Route path="*" element={<div>111</div>} />

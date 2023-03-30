@@ -10,7 +10,7 @@ const styles = {
 
   navbar: {
     p: [2, 2, 0],
-    flexBasis: ['auto', 'auto', 320],
+    flexBasis: ['auto', 'auto', 280],
     flexShrink: 0,
     backgroundColor: 'white',
   },
