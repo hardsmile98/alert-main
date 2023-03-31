@@ -9,11 +9,11 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/store';
-import { Loader } from 'components';
 import Layout from './Layout';
+import PageLoader from './PageLoader';
 
-const Login = React.lazy(() => import('pages/NoAuth/Login'));
-const Register = React.lazy(() => import('pages/NoAuth/Register'));
+const Login = React.lazy(() => import('pages/NoAuth/Register'));
+const Register = React.lazy(() => import('pages/NoAuth/Login'));
 
 function Routes() {
   const dispatch = useDispatch();
@@ -33,11 +33,13 @@ function Routes() {
   }, [isSuccess]);
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <PageLoader />
+    );
   }
 
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
         {false ? (
           <Layout>

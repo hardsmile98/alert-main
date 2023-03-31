@@ -1,14 +1,21 @@
+import { useState } from 'react';
 import {
   Box,
-  Button,
   TextField,
   Typography,
 } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 import logo from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
+import { isEmail } from 'utils/helpers';
 import styles from './styles';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isDisabled = password.length < 3 || !isEmail(email);
+
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
@@ -28,37 +35,20 @@ function Login() {
             sx={styles.title}
             variant="h4"
           >
-            Sign up for free
+            Welcome Back
           </Typography>
         </Box>
 
         <form onSubmit={handleLogin}>
           <Box sx={styles.field}>
             <Typography gutterBottom>
-              First name
-            </Typography>
-            <TextField
-              placeholder="First name"
-              fullWidth
-            />
-          </Box>
-
-          <Box sx={styles.field}>
-            <Typography gutterBottom>
-              Last name
-            </Typography>
-            <TextField
-              placeholder="Last name"
-              fullWidth
-            />
-          </Box>
-
-          <Box sx={styles.field}>
-            <Typography gutterBottom>
               E-mail
             </Typography>
             <TextField
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="E-mail"
+              type="email"
               fullWidth
             />
           </Box>
@@ -68,17 +58,22 @@ function Login() {
               Password
             </Typography>
             <TextField
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
               placeholder="Password"
               fullWidth
             />
           </Box>
 
-          <Button
+          <LoadingButton
             fullWidth
             type="submit"
+            variant="contained"
+            disabled={isDisabled}
           >
-            Sign up
-          </Button>
+            Sign in
+          </LoadingButton>
         </form>
 
         <Box sx={styles.separator}>
@@ -88,9 +83,9 @@ function Login() {
         </Box>
 
         <Box sx={styles.link}>
-          {'Already have an account? '}
+          {'Do not have an account? '}
           <Link to="/register">
-            Sign in
+            Sign up
           </Link>
         </Box>
       </Box>
