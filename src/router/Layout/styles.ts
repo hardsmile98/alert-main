@@ -9,7 +9,7 @@ const styles = {
   } as SxProps,
 
   navbar: {
-    p: [2, 2, 0],
+    p: 2,
     flexBasis: ['auto', 'auto', 280],
     flexShrink: 0,
     backgroundColor: 'white',

@@ -40,7 +40,7 @@ function Routes() {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        {isAuth ? (
+        {true ? (
           <Layout>
             <Switch>
               <Route path="*" element={<div>111</div>} />
