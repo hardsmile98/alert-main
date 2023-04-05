@@ -22,7 +22,7 @@ endpoints.forEach((endpoint: IEndpoint) => {
   app[endpoint?.method || 'get'](endpoint.path, async (req: Request, res: Response) => {
     const { data } = endpoint;
     const json = data && await import(`./data/${data}`);
-    const resultData = json ? json.default : { success: true };
+    const resultData = json ? json.default : {};
 
     setTimeout(() => res.send(resultData), 1000);
   });

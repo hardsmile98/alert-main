@@ -8,6 +8,12 @@ export const publicApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: getEnvProps.publicApiURL,
     prepareHeaders(headers) {
+      const token = localStorage.getItem('TOKEN');
+
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+
       return headers;
     },
     credentials: 'include',
@@ -18,5 +24,9 @@ export const publicApi = createApi({
 
 export const {
   // auth
+  useLoginMutation,
+  useRegisterMutation,
+
+  // user
   useCheckMeQuery,
 } = publicApi;

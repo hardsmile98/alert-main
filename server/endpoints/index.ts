@@ -1,3 +1,6 @@
 export default [
-  { path: '/api/v1/auth/me' },
+  { path: '/api/auth/login', method: 'post' },
+  { path: '/api/auth/register', method: 'post' },
+
+  { path: '/api/user/me' },
 ];

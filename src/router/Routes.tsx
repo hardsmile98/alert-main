@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { useCheckMeQuery } from 'api/publicApi';
-import { changeIsAuth } from 'store/slices/auth';
+import { logout } from 'store/slices/auth';
 import {
   BrowserRouter,
   Routes as Switch,
@@ -12,25 +12,24 @@ import { RootState } from 'store/store';
 import Layout from './Layout';
 import PageLoader from './PageLoader';
 
-const Login = React.lazy(() => import('pages/NoAuth/Register'));
-const Register = React.lazy(() => import('pages/NoAuth/Login'));
+const Register = React.lazy(() => import('pages/NoAuth/Register'));
+const Login = React.lazy(() => import('pages/NoAuth/Login'));
 
 function Routes() {
   const dispatch = useDispatch();
 
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
-  console.log(isAuth);
 
   const {
     isLoading,
-    isSuccess,
-  } = useCheckMeQuery({});
+    isError,
+  } = useCheckMeQuery({}, { skip: !isAuth });
 
   useEffect(() => {
-    if (isSuccess) {
-      dispatch(changeIsAuth(true));
+    if (isError) {
+      dispatch(logout());
     }
-  }, [isSuccess]);
+  }, [isError]);
 
   if (isLoading) {
     return (
@@ -41,7 +40,7 @@ function Routes() {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        {false ? (
+        {isAuth ? (
           <Layout>
             <Switch>
               <Route path="*" element={<div>111</div>} />

@@ -14,7 +14,7 @@ const styles = {
 function PageLoader() {
   return (
     <Box sx={styles.root}>
-      <Loader text="Загрузка..." />
+      <Loader text="Loading..." />
     </Box>
   );
 }

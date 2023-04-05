@@ -1,23 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
+  Alert,
   TextField,
   Typography,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { login as setToken } from 'store/slices/auth';
 import { LoadingButton } from '@mui/lab';
 import logo from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { isEmail } from 'utils/helpers';
+import { useLoginMutation } from 'api/publicApi';
+import { MyError } from 'models';
 import styles from './styles';
 
 function Login() {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [login, {
+    isError,
+    isLoading,
+    isSuccess,
+    data,
+    error,
+  }] = useLoginMutation();
+
+  const { message } = (error as MyError)?.data || {};
+  const errorMessage = Array.isArray(message) ? message.join(';') : message;
+
+  const { token } = data || {};
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(setToken(token));
+    }
+  }, [isSuccess]);
 
   const isDisabled = password.length < 3 || !isEmail(email);
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    login({
+      email,
+      password,
+    });
   };
 
   return (
@@ -50,6 +81,7 @@ function Login() {
               placeholder="E-mail"
               type="email"
               fullWidth
+              error={isError}
             />
           </Box>
 
@@ -63,6 +95,7 @@ function Login() {
               type="password"
               placeholder="Password"
               fullWidth
+              error={isError}
             />
           </Box>
 
@@ -70,10 +103,20 @@ function Login() {
             fullWidth
             type="submit"
             variant="contained"
+            loading={isLoading}
             disabled={isDisabled}
           >
             Sign in
           </LoadingButton>
+
+          {isError && (
+            <Alert
+              severity="error"
+              sx={{ mt: 1 }}
+            >
+              {errorMessage}
+            </Alert>
+          )}
         </form>
 
         <Box sx={styles.separator}>
