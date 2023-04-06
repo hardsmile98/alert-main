@@ -1,8 +1,8 @@
 import { IRouteIcon } from 'models';
 import {
-  PermContactCalendar as RecordIcon,
-  Settings as SettingIcon,
-  PeopleAlt as ClientsIcon,
+  PersonOutline as ProfileIcon,
+  Language as MonitorsIcon,
+  NotificationsNoneOutlined as AlerIcon,
 } from '@mui/icons-material';
 
 interface IProps {
@@ -10,9 +10,9 @@ interface IProps {
 }
 
 const ICONS = {
-  profile: <RecordIcon />,
-  alerts: <ClientsIcon />,
-  monitors: <SettingIcon />,
+  profile: <ProfileIcon />,
+  alerts: <AlerIcon />,
+  monitors: <MonitorsIcon />,
 };
 
 function MenuIcons({ icon }: IProps) {

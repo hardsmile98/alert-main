@@ -2,6 +2,7 @@ import Loader from './Loader';
 import Modal from './Modal';
 import Select from './Select';
 import ErrorBoundary from './ErrorBoundary';
+import PageWrapper from './PageWrapper';
 import Link from './Link';
 
 export {
@@ -9,5 +10,6 @@ export {
   Modal,
   Select,
   Link,
+  PageWrapper,
   ErrorBoundary,
 };
