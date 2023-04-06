@@ -1,3 +1,4 @@
+import { Box, Typography } from '@mui/material';
 import { PageWrapper } from 'components';
 
 function Profile() {
@@ -5,7 +6,15 @@ function Profile() {
     <PageWrapper
       title="Profile"
     >
-      index
+      <Box>
+        <Typography variant="h4">
+          My Profile
+        </Typography>
+
+        <Box>
+          FORM
+        </Box>
+      </Box>
     </PageWrapper>
   );
 }

@@ -1,10 +1,51 @@
 import { createTheme, responsiveFontSizes } from '@mui/material';
 
 const mytheme = createTheme({
+  typography: {
+    h1: {
+      fontWeight: 'fontWeightBold',
+    },
+    h2: {
+      fontWeight: 'fontWeightBold',
+    },
+    h3: {
+      fontWeight: 'fontWeightBold',
+    },
+    h4: {
+      fontWeight: 'fontWeightBold',
+    },
+    h5: {
+      fontWeight: 'fontWeightBold',
+    },
+    h6: {
+      fontWeight: 'fontWeightBold',
+    },
+  },
+
   components: {
     MuiTextField: {
       defaultProps: {
         size: 'small',
+      },
+    },
+
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: '0px 4px 15px -5px rgba(34, 60, 80, 0.2)',
+        },
+      },
+    },
+
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true,
+        enterTouchDelay: 0,
+      },
+      styleOverrides: {
+        tooltip: {
+          fontSize: '14px',
+        },
       },
     },
 

@@ -1,6 +1,8 @@
 const styles = {
   root: {
     p: 3,
+    maxWidth: 1080,
+    mx: 'auto',
   },
 
   errorTitle: {
