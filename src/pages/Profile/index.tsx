@@ -1,19 +1,18 @@
 import { Box, Typography } from '@mui/material';
 import { PageWrapper } from 'components';
+import Data from './Data';
 
 function Profile() {
   return (
     <PageWrapper
       title="Profile"
     >
-      <Box>
-        <Typography variant="h4">
-          My Profile
-        </Typography>
+      <Typography variant="h4">
+        My Profile
+      </Typography>
 
-        <Box>
-          FORM
-        </Box>
+      <Box mt={3}>
+        <Data />
       </Box>
     </PageWrapper>
   );

@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { PageWrapper } from 'components';
 
 function Alerts() {
@@ -5,7 +6,9 @@ function Alerts() {
     <PageWrapper
       title="Alerts"
     >
-      index
+      <Typography variant="h4">
+        Alerts
+      </Typography>
     </PageWrapper>
   );
 }

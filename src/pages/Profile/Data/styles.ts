@@ -1,0 +1,37 @@
+const styles = {
+  root: {
+    p: 3,
+    backgroundColor: 'white',
+    borderRadius: 2,
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+
+  block: {
+    mt: 0.5,
+    display: 'flex',
+  },
+
+  fieild: {
+    mb: 0.5,
+    color: 'text.secondary',
+  },
+
+  icon: {
+    mr: 1.5,
+    backgroundColor: 'divider',
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  changeButton: {
+    mt: 1,
+  },
+};
+
+export default styles;

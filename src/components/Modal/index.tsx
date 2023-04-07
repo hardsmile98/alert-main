@@ -34,7 +34,10 @@ function Modal({
   title,
 }:Props) {
   return (
-    <Dialog onClose={onClose} open={open}>
+    <Dialog
+      onClose={onClose}
+      open={open}
+    >
       <Box p={[2, 3]}>
         <Box sx={styles.head}>
           {title && (

@@ -34,6 +34,7 @@ function MySelect({
       fullWidth={fullWidth}
       onChange={handleChange}
       placeholder={placeholder}
+      size="small"
     >
       {options.map(({ title, value: optionValue }) => (
         <MenuItem
