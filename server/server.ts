@@ -16,7 +16,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 endpoints.forEach((endpoint: IEndpoint) => {
   app[endpoint?.method || 'get'](endpoint.path, async (req: Request, res: Response) => {

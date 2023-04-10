@@ -29,4 +29,5 @@ export const {
 
   // user
   useCheckMeQuery,
+  useChangePasswordMutation,
 } = publicApi;

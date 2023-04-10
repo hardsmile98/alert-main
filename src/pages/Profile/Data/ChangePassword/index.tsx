@@ -1,7 +1,8 @@
 import { LoadingButton } from '@mui/lab';
 import { Box, TextField, Typography } from '@mui/material';
-import { Modal } from 'components';
-import { useState } from 'react';
+import { useChangePasswordMutation } from 'api/publicApi';
+import { ErrorAlert, Modal } from 'components';
+import { useEffect, useState } from 'react';
 
 interface IProps {
   open: boolean
@@ -12,13 +13,35 @@ function ChangePassword({ open, onClose }: IProps) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
+  const [changePassword, {
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  }] = useChangePasswordMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      onClose();
+    }
+  }, [isSuccess]);
+
+  const handleChangePassword = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    changePassword({
+      currentPassword,
+      newPassword,
+    });
+  };
+
   return (
     <Modal
       onClose={onClose}
       open={open}
       title="Change password"
     >
-      <form onSubmit={() => {}}>
+      <form onSubmit={handleChangePassword}>
         <Box mb={1}>
           <Typography gutterBottom>
             Current password
@@ -48,9 +71,17 @@ function ChangePassword({ open, onClose }: IProps) {
         <LoadingButton
           fullWidth
           variant="contained"
+          type="submit"
+          loading={isLoading}
         >
           Change
         </LoadingButton>
+
+        {isError && (
+          <Box mt={1}>
+            <ErrorAlert error={error} />
+          </Box>
+        )}
       </form>
     </Modal>
   );

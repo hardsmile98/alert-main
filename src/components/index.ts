@@ -2,6 +2,7 @@ import Loader from './Loader';
 import Modal from './Modal';
 import Select from './Select';
 import ErrorBoundary from './ErrorBoundary';
+import ErrorAlert from './ErrorAlert';
 import PageWrapper from './PageWrapper';
 import Link from './Link';
 
@@ -11,5 +12,6 @@ export {
   Select,
   Link,
   PageWrapper,
+  ErrorAlert,
   ErrorBoundary,
 };

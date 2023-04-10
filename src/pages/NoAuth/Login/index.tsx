@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
   Box,
-  Alert,
   TextField,
   Typography,
 } from '@mui/material';
@@ -12,7 +11,7 @@ import logo from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { isEmail } from 'utils/helpers';
 import { useLoginMutation } from 'api/publicApi';
-import { MyError } from 'models';
+import { ErrorAlert } from 'components';
 import styles from './styles';
 
 function Login() {
@@ -28,9 +27,6 @@ function Login() {
     data,
     error,
   }] = useLoginMutation();
-
-  const { message } = (error as MyError)?.data || {};
-  const errorMessage = Array.isArray(message) ? message.join(';') : message;
 
   const { token } = data || {};
 
@@ -110,12 +106,9 @@ function Login() {
           </LoadingButton>
 
           {isError && (
-            <Alert
-              severity="error"
-              sx={{ mt: 1 }}
-            >
-              {errorMessage}
-            </Alert>
+          <Box mt={1}>
+            <ErrorAlert error={error} />
+          </Box>
           )}
         </form>
 
