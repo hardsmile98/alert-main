@@ -5,7 +5,8 @@ const styles = {
     borderRadius: 2,
     display: 'flex',
     flexWrap: 'wrap',
-    gap: 10,
+    rowGap: 2,
+    columnGap: 10,
   },
 
   block: {

@@ -11,7 +11,7 @@ function Profile() {
         My Profile
       </Typography>
 
-      <Box mt={3}>
+      <Box mt={2}>
         <Data />
       </Box>
     </PageWrapper>
