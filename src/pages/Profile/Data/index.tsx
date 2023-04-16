@@ -5,14 +5,26 @@ import {
   SettingsOutlined as PlanIcon,
 } from '@mui/icons-material';
 
+import { ProfileResponse } from 'models';
 import ChangePassword from './ChangePassword';
 import styles from './styles';
 
-function Data() {
+interface Props {
+  profile: ProfileResponse | undefined
+}
+
+function Data({ profile }: Props) {
   const [isOpenModal, setOpenModal] = useState(false);
 
   const handleCloseModal = () => setOpenModal(false);
   const handleOpenModal = () => setOpenModal(true);
+
+  const {
+    email,
+    firstName,
+    lastName,
+    plan,
+  } = profile || {};
 
   return (
     <>
@@ -28,15 +40,18 @@ function Data() {
             </Typography>
 
             <Box sx={styles.fieild}>
-              E-mail: aaaa
+              {' E-mail: '}
+              {email}
             </Box>
 
             <Box sx={styles.fieild}>
-              First name: aaaa
+              {'First name: '}
+              {firstName}
             </Box>
 
             <Box sx={styles.fieild}>
-              Last name: aaaa
+              {'Last name: '}
+              {lastName}
             </Box>
 
             <Button
@@ -60,7 +75,8 @@ function Data() {
             </Typography>
 
             <Box sx={styles.fieild}>
-              Type: Trial plan
+              {'Type: '}
+              {plan}
             </Box>
           </Box>
         </Box>

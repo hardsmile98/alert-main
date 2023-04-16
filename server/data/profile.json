@@ -1,0 +1,9 @@
+{
+    "id": 14,
+    "firstName": "123",
+    "lastName": "123",
+    "email": "qwert@mail.ru",
+    "createdAt": "2023-04-07T13:52:00.883Z",
+    "updatedAt": "2023-04-07T14:05:58.432Z",
+    "plan": "free"
+}
