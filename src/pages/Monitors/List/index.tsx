@@ -1,4 +1,4 @@
-import MonitorsItem from './MonitorsItem';
+import Item from './Item';
 
 const list = [
   {
@@ -9,13 +9,13 @@ const list = [
   },
 ];
 
-function MonitorsList() {
+function List() {
   return (
     <>
       {list.map((({
         name, status, timeUpdated, frequency,
       }) => (
-        <MonitorsItem
+        <Item
           name={name}
           status={status}
           timeUpdated={timeUpdated}
@@ -26,4 +26,4 @@ function MonitorsList() {
   );
 }
 
-export default MonitorsList;
+export default List;

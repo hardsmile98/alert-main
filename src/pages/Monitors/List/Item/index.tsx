@@ -10,7 +10,7 @@ interface IProps {
   frequency: string
 }
 
-function MonitorsItem({
+function Item({
   name,
   status,
   timeUpdated,
@@ -54,4 +54,4 @@ function MonitorsItem({
   );
 }
 
-export default MonitorsItem;
+export default Item;

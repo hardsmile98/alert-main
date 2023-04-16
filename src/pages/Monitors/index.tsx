@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { PageWrapper } from 'components';
 import Banner from './Banner';
-import MonitorsList from './MonitorsList';
+import List from './List';
 import Create from './Create';
 import styles from './styles';
 
@@ -35,7 +35,7 @@ function Monitors() {
         <Box sx={styles.wrap}>
           {isNoMonitons
             ? <Banner onAddMonitor={handleOpenModal} />
-            : <MonitorsList />}
+            : <List />}
         </Box>
       </PageWrapper>
 

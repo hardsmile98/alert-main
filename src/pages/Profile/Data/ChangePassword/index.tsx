@@ -13,6 +13,8 @@ function ChangePassword({ open, onClose }: IProps) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
+  const isDisabled = !currentPassword.length || !newPassword.length;
+
   const [changePassword, {
     isLoading,
     isSuccess,
@@ -73,6 +75,7 @@ function ChangePassword({ open, onClose }: IProps) {
           variant="contained"
           type="submit"
           loading={isLoading}
+          disabled={isDisabled}
         >
           Change
         </LoadingButton>
