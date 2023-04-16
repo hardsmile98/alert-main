@@ -13,8 +13,24 @@ interface ProfileResponse {
   plan: Plan
 }
 
+type ChannelType = 'telegram' | 'email';
+
+type ChannelsResponse = Array<{
+  id: number
+  type: ChannelType
+  value: string
+}>;
+
+interface AddChannelDto {
+  type: ChannelType
+  value: string
+}
+
 export type {
   ChangePasswordDto,
+  ChannelsResponse,
   ProfileResponse,
+  ChannelType,
   Plan,
+  AddChannelDto,
 };

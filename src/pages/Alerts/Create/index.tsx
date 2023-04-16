@@ -62,11 +62,13 @@ function Create() {
         />
       </Box>
 
-      <AddChannel
-        isOpen={!!channelType}
-        onClose={handleCloseAdding}
-        channelType={channelType}
-      />
+      {!!channelType && (
+        <AddChannel
+          isOpen={!!channelType}
+          onClose={handleCloseAdding}
+          channelType={channelType}
+        />
+      )}
     </>
   );
 }

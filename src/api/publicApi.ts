@@ -31,4 +31,7 @@ export const {
   useCheckMeQuery,
   useChangePasswordMutation,
   useGetProfileQuery,
+  useGetChannelsQuery,
+  useAddChannelMutation,
+  useDeleteChannelMutation,
 } = publicApi;

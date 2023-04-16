@@ -1,0 +1,14 @@
+[
+    {
+        "id": 2,
+        "value": "123123@mail.ru",
+        "type": "email",
+        "userId": 14
+    },
+    {
+        "id": 3,
+        "value": "x23213@mail.ru",
+        "type": "email",
+        "userId": 14
+    }
+]

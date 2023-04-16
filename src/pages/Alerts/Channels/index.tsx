@@ -1,14 +1,15 @@
 import { Box, IconButton } from '@mui/material';
-import { Channel, ChannelType } from 'models';
+import { ChannelType, ChannelsResponse } from 'models';
 import {
   AlternateEmail as EmailIcon,
   Telegram as TelegramIcon,
   DeleteOutlineOutlined as DeleteIcon,
 } from '@mui/icons-material';
+import { useDeleteChannelMutation } from 'api/publicApi';
 import styles from './styles';
 
 interface Props {
-  channels: Array<Channel> | [];
+  channels: ChannelsResponse | undefined;
 }
 
 interface IconProps {
@@ -27,7 +28,13 @@ function Icon({ type }: IconProps) {
 }
 
 function Channels({ channels }: Props) {
-  if (!channels.length) {
+  const [deleteChannel, { isLoading }] = useDeleteChannelMutation();
+
+  const handleDeleteChannel = (id: number) => {
+    deleteChannel({ id });
+  };
+
+  if (!channels?.length) {
     return (
       <Box sx={styles.noChannels}>
         Add first notification channel
@@ -37,29 +44,32 @@ function Channels({ channels }: Props) {
 
   return (
     <>
-      {channels.map((channel) => (
+      {channels.map(({ id, type, value }) => (
         <Box
           sx={styles.channel}
-          key={channel.id}
+          key={id}
         >
           <Box sx={styles.body}>
             <Box sx={styles.icon}>
-              <Icon type={channel.type} />
+              <Icon type={type} />
             </Box>
 
             <Box>
               <Box sx={styles.type}>
-                {channel.type}
+                {type}
               </Box>
               <Box sx={styles.value}>
-                {channel.value}
+                {value}
               </Box>
             </Box>
           </Box>
 
           <Box>
-            <IconButton>
-              <DeleteIcon color="error" />
+            <IconButton
+              disabled={isLoading}
+              onClick={() => handleDeleteChannel(id)}
+            >
+              <DeleteIcon />
             </IconButton>
           </Box>
         </Box>

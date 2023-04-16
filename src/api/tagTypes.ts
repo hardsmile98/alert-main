@@ -1,5 +1,5 @@
 const tagTypes = {
-  clients: 'clients',
+  channels: 'channels',
 };
 
 export default tagTypes;

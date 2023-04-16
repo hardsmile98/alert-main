@@ -2,7 +2,8 @@ import { Box, Typography, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { Modal } from 'components';
 import { ChannelType } from 'models';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAddChannelMutation } from 'api/publicApi';
 
 interface Props {
   isOpen: boolean,
@@ -16,6 +17,16 @@ function AddChannel({
   channelType,
 }: Props) {
   const [value, setValue] = useState('');
+
+  const isDisabled = !value.length;
+
+  const [addChannel, { isLoading, isSuccess }] = useAddChannelMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      onClose();
+    }
+  }, [isSuccess]);
 
   switch (channelType) {
     case 'email':
@@ -40,9 +51,12 @@ function AddChannel({
             </Box>
 
             <LoadingButton
+              onClick={() => addChannel({ type: channelType, value })}
               fullWidth
               variant="contained"
               type="submit"
+              disabled={isDisabled}
+              loading={isLoading}
             >
               Add
             </LoadingButton>
