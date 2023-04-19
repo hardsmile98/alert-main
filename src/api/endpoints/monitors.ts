@@ -3,12 +3,14 @@ import tags from 'api/tagTypes';
 import {
   AddMonitorDto,
   IBuilder,
-  MonitorsResponse,
+  IMonitors,
 } from 'models';
+import { transformMonitors } from 'api/formatters';
 
 export default (builder: IBuilder) => ({
-  getMonitors: builder.query<MonitorsResponse, {}>({
+  getMonitors: builder.query<IMonitors, {}>({
     query: () => '/api/monitor',
+    transformResponse: transformMonitors,
     providesTags: [tags.monitors as unknown as FullTagDescription<never>],
   }),
 

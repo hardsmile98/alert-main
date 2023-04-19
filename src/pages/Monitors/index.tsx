@@ -11,11 +11,12 @@ function Monitors() {
   const [isOpenModal, setOpenModal] = useState(false);
 
   const { data, isLoading, isError } = useGetMonitorsQuery({});
+  const { monitors, isLimit } = data || {};
 
   const handleCloseModal = () => setOpenModal(false);
   const handleOpenModal = () => setOpenModal(true);
 
-  const isNoMonitons = data?.length === 0;
+  const isNoMonitons = monitors?.length === 0;
 
   return (
     <>
@@ -31,7 +32,10 @@ function Monitors() {
           </Typography>
 
           {!isNoMonitons && (
-            <Button onClick={handleOpenModal}>
+            <Button
+              disabled={isLimit}
+              onClick={handleOpenModal}
+            >
               Add monitor
             </Button>
           )}
@@ -40,7 +44,7 @@ function Monitors() {
         <Box sx={styles.wrap}>
           {isNoMonitons
             ? <Banner onAddMonitor={handleOpenModal} />
-            : <List monitors={data} />}
+            : <List monitors={monitors} />}
         </Box>
       </PageWrapper>
 
