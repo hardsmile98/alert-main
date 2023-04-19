@@ -4,7 +4,13 @@ import {
   MoreHoriz as ListIcon,
   PauseCircleOutline as PauseIcon,
   DeleteOutlineOutlined as DeleteIcon,
+  PlayCircleOutline as StartIcon,
 } from '@mui/icons-material';
+import { MonitorStatus } from 'models';
+import {
+  useChangeStatusMonitorMutation,
+  useDeleteMonitorMutation,
+} from 'api/publicApi';
 
 const styles = {
   item: {
@@ -14,10 +20,20 @@ const styles = {
   },
 };
 
-function Actions() {
+interface IProps {
+  id: number
+  status: MonitorStatus
+}
+
+function Actions({ id, status }: IProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
+
+  const [changeStatus, { isLoading: isChanging }] = useChangeStatusMonitorMutation();
+  const [deleteMonitor, { isLoading: isDeleting }] = useDeleteMonitorMutation();
+
+  const isLoading = isChanging || isDeleting;
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -25,6 +41,16 @@ function Actions() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleChangeStatus = (monitorId: number) => {
+    setAnchorEl(null);
+    changeStatus({ id: monitorId });
+  };
+
+  const handleDelete = (monitorId: number) => {
+    setAnchorEl(null);
+    deleteMonitor({ id: monitorId });
   };
 
   return (
@@ -50,15 +76,26 @@ function Actions() {
       >
         <MenuItem
           sx={styles.item}
-          onClick={handleClose}
+          onClick={() => handleChangeStatus(id)}
+          disabled={isLoading}
         >
-          <PauseIcon />
-          Pause
+          {status === 'PAUSE' ? (
+            <>
+              <StartIcon />
+              Start
+            </>
+          ) : (
+            <>
+              <PauseIcon />
+              Pause
+            </>
+          )}
         </MenuItem>
 
         <MenuItem
           sx={styles.item}
-          onClick={handleClose}
+          onClick={() => handleDelete(id)}
+          disabled={isLoading}
         >
           <DeleteIcon />
           Delete

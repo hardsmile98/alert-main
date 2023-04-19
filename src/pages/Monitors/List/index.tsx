@@ -1,26 +1,22 @@
+import { MonitorsResponse } from 'models/monitors';
 import Item from './Item';
 
-const list = [
-  {
-    id: 1,
-    name: 'site 1',
-    status: 'up',
-    timeUpdated: '11h 50m from now',
-    frequency: '20m',
-  },
-];
+interface IProps {
+  monitors: MonitorsResponse | undefined
+}
 
-function List() {
+function List({ monitors }: IProps) {
   return (
     <>
-      {list.map((({
-        id, name, status, timeUpdated, frequency,
+      {(monitors || []).map((({
+        id, name, status, updatedAt, frequency,
       }) => (
         <Item
           key={id}
+          id={id}
           name={name}
           status={status}
-          timeUpdated={timeUpdated}
+          timeUpdated={updatedAt}
           frequency={frequency}
         />
       )))}

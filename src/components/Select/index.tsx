@@ -2,14 +2,14 @@ import { MenuItem, SxProps } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface IOption {
-  value: string
+  value: string | number
   title: string
 }
 
 interface IProps {
   options: Array<IOption>
-  value: string | undefined
-  onChange: (newValue: string) => void
+  value: string | number | undefined
+  onChange: (newValue: string | number) => void
   placeholder?: string
   sx?: SxProps
   fullWidth?: boolean
@@ -30,7 +30,7 @@ function MySelect({
   return (
     <Select
       sx={sx}
-      value={value}
+      value={String(value)}
       fullWidth={fullWidth}
       onChange={handleChange}
       placeholder={placeholder}

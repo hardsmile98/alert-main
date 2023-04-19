@@ -34,4 +34,10 @@ export const {
   useGetChannelsQuery,
   useAddChannelMutation,
   useDeleteChannelMutation,
+
+  // monitors
+  useGetMonitorsQuery,
+  useAddMonitorMutation,
+  useDeleteMonitorMutation,
+  useChangeStatusMonitorMutation,
 } = publicApi;

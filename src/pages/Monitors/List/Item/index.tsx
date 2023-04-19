@@ -1,16 +1,20 @@
+/* eslint-disable no-nested-ternary */
 import { Box, Tooltip } from '@mui/material';
 import { History as CheckIcon } from '@mui/icons-material';
+import { MonitorStatus } from 'models';
 import Actions from './Actions';
 import styles from './styles';
 
 interface IProps {
+  id: number
   name: string
-  status: string
+  status: MonitorStatus
   timeUpdated: string
   frequency: string
 }
 
 function Item({
+  id,
   name,
   status,
   timeUpdated,
@@ -23,7 +27,11 @@ function Item({
           component="span"
           sx={{
             ...styles.status,
-            backgroundColor: 'success.main',
+            backgroundColor: status === 'UP'
+              ? 'success.main'
+              : status === 'DOWN'
+                ? 'error.main'
+                : 'warning.main',
           }}
         />
 
@@ -47,7 +55,10 @@ function Item({
         </Tooltip>
 
         <Box ml={5}>
-          <Actions />
+          <Actions
+            id={id}
+            status={status}
+          />
         </Box>
       </Box>
     </Box>

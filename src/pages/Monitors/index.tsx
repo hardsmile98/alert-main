@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
+import { useGetMonitorsQuery } from 'api/publicApi';
 import { PageWrapper } from 'components';
 import Banner from './Banner';
 import List from './List';
@@ -9,15 +10,19 @@ import styles from './styles';
 function Monitors() {
   const [isOpenModal, setOpenModal] = useState(false);
 
+  const { data, isLoading, isError } = useGetMonitorsQuery({});
+
   const handleCloseModal = () => setOpenModal(false);
   const handleOpenModal = () => setOpenModal(true);
 
-  const isNoMonitons = false;
+  const isNoMonitons = data?.length === 0;
 
   return (
     <>
       <PageWrapper
         title="Monitors"
+        isLoading={isLoading}
+        isError={isError}
       >
 
         <Box sx={styles.head}>
@@ -35,14 +40,16 @@ function Monitors() {
         <Box sx={styles.wrap}>
           {isNoMonitons
             ? <Banner onAddMonitor={handleOpenModal} />
-            : <List />}
+            : <List monitors={data} />}
         </Box>
       </PageWrapper>
 
-      <Create
-        open={isOpenModal}
-        onClose={handleCloseModal}
-      />
+      {isOpenModal && (
+        <Create
+          open={isOpenModal}
+          onClose={handleCloseModal}
+        />
+      )}
     </>
   );
 }
