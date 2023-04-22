@@ -22,8 +22,10 @@
 ```javascript
 /* First, Install the needed packages */
 yarn
+
 /* Then start the React app */
 yarn dev:web
+
 /* To run app with mock server */
 yarn dev
 ```
