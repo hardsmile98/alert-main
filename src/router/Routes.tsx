@@ -43,7 +43,7 @@ function Routes() {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        {true ? (
+        {isAuth ? (
           <Layout>
             <Switch>
               <Route path="/monitors" element={<Monitors />} />
