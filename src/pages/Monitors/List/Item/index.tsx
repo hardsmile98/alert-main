@@ -27,11 +27,9 @@ function Item({
           component="span"
           sx={{
             ...styles.status,
-            backgroundColor: status === 'UP'
-              ? 'success.main'
-              : status === 'DOWN'
-                ? 'error.main'
-                : 'warning.main',
+            ...(status === 'UP' && styles.statusUp),
+            ...(status === 'DOWN' && styles.statusDown),
+            ...(status === 'PAUSE' && styles.statusPause),
           }}
         />
 

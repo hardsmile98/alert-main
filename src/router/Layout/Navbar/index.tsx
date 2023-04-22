@@ -1,22 +1,14 @@
 import { Box } from '@mui/material';
 import logo from 'assets/images/logo.svg';
 import { Link } from 'components';
+import { useIsMobile } from 'hooks';
 import Menu from './Menu';
-
-const styles = {
-  root: {},
-
-  logo: {
-    width: 130,
-    height: 'auto',
-  },
-
-  menu: {
-    mt: 3,
-  },
-};
+import MobileMenu from './MobileMenu';
+import styles from './styles';
 
 function Navbar() {
+  const { isTablet } = useIsMobile();
+
   return (
     <Box
       component="nav"
@@ -31,9 +23,13 @@ function Navbar() {
         />
       </Link>
 
-      <Box sx={styles.menu}>
-        <Menu />
-      </Box>
+      {isTablet
+        ? <MobileMenu />
+        : (
+          <Box sx={styles.menu}>
+            <Menu />
+          </Box>
+        )}
     </Box>
   );
 }

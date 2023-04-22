@@ -8,12 +8,26 @@ import { logout } from 'store/slices/auth';
 import MenuIcons from './MenuIcons';
 import styles from './styles';
 
-function Menu() {
+interface IProps {
+  onClickItem?: () => void
+}
+
+function Menu({ onClickItem }: IProps) {
   const dispatch = useDispatch();
 
   const { pathname } = useLocation();
 
-  const handleLogout = () => dispatch(logout());
+  const handleClickMenu = () => {
+    if (typeof onClickItem === 'function') {
+      onClickItem();
+    }
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+
+    handleClickMenu();
+  };
 
   return (
     <MenuList sx={styles.root}>
@@ -25,7 +39,10 @@ function Menu() {
             ...(pathname === path && styles.active),
           }}
         >
-          <Link to={path}>
+          <Link
+            to={path}
+            onClick={handleClickMenu}
+          >
             <MenuIcons icon={icon} />
             {title}
           </Link>

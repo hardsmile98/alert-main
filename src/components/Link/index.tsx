@@ -7,6 +7,7 @@ interface Props {
   children?: ReactNode
   to: string
   sx?: SxProps
+  onClick?: any,
 }
 
 function Link({
