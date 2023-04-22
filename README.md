@@ -6,8 +6,12 @@
 
 ## Basic Overview
 <p>
-  This is a simple website monitoring app built with React, Typescript, MUI5
-  Backend repository [click here](https://github.com/hardsmile98/alert-backend)
+ <div>
+    This is a simple website monitoring app built with React, Typescript, MUI5
+ </div>
+  <div>
+    Backend repository https://github.com/hardsmile98/alert-backend
+ </div>
 </p>
 
 ### Requirements
