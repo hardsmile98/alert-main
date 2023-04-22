@@ -3,6 +3,7 @@ import { useGetMonitorQuery } from 'api/publicApi';
 import { PageWrapper, Back } from 'components';
 import { useParams } from 'react-router-dom';
 import Info from './Info';
+import ResponseTime from './ResponseTime';
 
 function Monitor() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function Monitor() {
     refetchOnMountOrArgChange: true,
   });
 
-  console.log(data);
+  const { info, chartData } = data || {};
 
   return (
     <PageWrapper
@@ -36,7 +37,11 @@ function Monitor() {
       </Typography>
 
       <Box mt={2}>
-        <Info info={data} />
+        <Info info={info} />
+      </Box>
+
+      <Box mt={2}>
+        <ResponseTime chartData={chartData} />
       </Box>
     </PageWrapper>
   );

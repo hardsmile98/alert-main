@@ -1,11 +1,100 @@
 {
-    "id": 2,
-    "name": "deniskotelev.site",
-    "url": "https://deniskotelev.site/",
-    "frequency": 10,
-    "status": "UP",
-    "userId": 1,
-    "checkAt": "2023-04-22T11:09:00.267Z",
-    "createdAt": "2023-04-22T10:58:10.300Z",
-    "updatedAt": "2023-04-22T11:12:14.606Z"
-}
+    "data": [
+      {
+        "id": 17,
+        "responseTime": 303,
+        "createdAt": "2023-04-22T18:48:30.325Z"
+      },
+      {
+        "id": 16,
+        "responseTime": 221,
+        "createdAt": "2023-04-22T18:48:00.242Z"
+      },
+      {
+        "id": 15,
+        "responseTime": 293,
+        "createdAt": "2023-04-22T18:47:30.310Z"
+      },
+      {
+        "id": 14,
+        "responseTime": 241,
+        "createdAt": "2023-04-22T18:47:00.268Z"
+      },
+      {
+        "id": 13,
+        "responseTime": 276,
+        "createdAt": "2023-04-22T18:46:30.328Z"
+      },
+      {
+        "id": 12,
+        "responseTime": 252,
+        "createdAt": "2023-04-22T18:46:00.281Z"
+      },
+      {
+        "id": 11,
+        "responseTime": 241,
+        "createdAt": "2023-04-22T18:45:30.264Z"
+      },
+      {
+        "id": 10,
+        "responseTime": 278,
+        "createdAt": "2023-04-22T18:45:00.322Z"
+      },
+      {
+        "id": 9,
+        "responseTime": 222,
+        "createdAt": "2023-04-22T18:44:30.232Z"
+      },
+      {
+        "id": 8,
+        "responseTime": 251,
+        "createdAt": "2023-04-22T18:44:00.278Z"
+      },
+      {
+        "id": 7,
+        "responseTime": 232,
+        "createdAt": "2023-04-22T18:43:30.243Z"
+      },
+      {
+        "id": 6,
+        "responseTime": 222,
+        "createdAt": "2023-04-22T18:43:00.229Z"
+      },
+      {
+        "id": 5,
+        "responseTime": 230,
+        "createdAt": "2023-04-22T18:42:30.239Z"
+      },
+      {
+        "id": 4,
+        "responseTime": 226,
+        "createdAt": "2023-04-22T18:42:00.246Z"
+      },
+      {
+        "id": 3,
+        "responseTime": 230,
+        "createdAt": "2023-04-22T18:41:30.240Z"
+      },
+      {
+        "id": 2,
+        "responseTime": 224,
+        "createdAt": "2023-04-22T18:41:00.247Z"
+      },
+      {
+        "id": 1,
+        "responseTime": 224,
+        "createdAt": "2023-04-22T18:40:30.234Z"
+      }
+    ],
+    "monitor": {
+      "id": 1,
+      "name": "deniskotelev.site",
+      "url": "https://deniskotelev.site",
+      "frequency": 10,
+      "status": "UP",
+      "userId": 1,
+      "checkAt": "2023-04-22T18:40:06.969Z",
+      "createdAt": "2023-04-22T18:40:06.973Z",
+      "updatedAt": "2023-04-22T18:40:06.973Z"
+    }
+  }

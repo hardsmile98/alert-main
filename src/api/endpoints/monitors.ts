@@ -4,7 +4,7 @@ import {
   AddMonitorDto,
   IBuilder,
   IMonitors,
-  Monitor,
+  IMonitor,
 } from 'models';
 import { transformMonitors, transformMonitor } from 'api/formatters';
 
@@ -15,7 +15,7 @@ export default (builder: IBuilder) => ({
     providesTags: [tags.monitors as unknown as FullTagDescription<never>],
   }),
 
-  getMonitor: builder.query<Monitor, {}>({
+  getMonitor: builder.query<IMonitor, {}>({
     query: (id: number) => `/api/monitor/${id}`,
     transformResponse: transformMonitor,
   }),
