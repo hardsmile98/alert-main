@@ -6,6 +6,7 @@ import {
   DeleteOutlineOutlined as DeleteIcon,
 } from '@mui/icons-material';
 import { useDeleteChannelMutation } from 'api/publicApi';
+import { Wrapper } from 'components';
 import styles from './styles';
 
 interface Props {
@@ -36,16 +37,16 @@ function Channels({ channels }: Props) {
 
   if (!channels?.length) {
     return (
-      <Box sx={styles.noChannels}>
+      <Wrapper sx={styles.noChannels}>
         Add first notification channel
-      </Box>
+      </Wrapper>
     );
   }
 
   return (
     <>
       {channels.map(({ id, type, value }) => (
-        <Box
+        <Wrapper
           sx={styles.channel}
           key={id}
         >
@@ -72,7 +73,7 @@ function Channels({ channels }: Props) {
               <DeleteIcon />
             </IconButton>
           </Box>
-        </Box>
+        </Wrapper>
       ))}
     </>
   );

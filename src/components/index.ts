@@ -5,6 +5,8 @@ import ErrorBoundary from './ErrorBoundary';
 import ErrorAlert from './ErrorAlert';
 import PageWrapper from './PageWrapper';
 import Link from './Link';
+import Wrapper from './Wrapper';
+import Back from './Back';
 
 export {
   Loader,
@@ -13,5 +15,7 @@ export {
   Link,
   PageWrapper,
   ErrorAlert,
+  Wrapper,
+  Back,
   ErrorBoundary,
 };

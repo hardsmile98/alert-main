@@ -6,6 +6,7 @@ import {
 } from '@mui/icons-material';
 
 import { ProfileResponse } from 'models';
+import { Wrapper } from 'components';
 import ChangePassword from './ChangePassword';
 import styles from './styles';
 
@@ -28,7 +29,7 @@ function Data({ profile }: Props) {
 
   return (
     <>
-      <Box sx={styles.root}>
+      <Wrapper sx={styles.root}>
         <Box sx={styles.block}>
           <Box sx={styles.icon}>
             <ProfileIcon />
@@ -80,7 +81,7 @@ function Data({ profile }: Props) {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Wrapper>
 
       <ChangePassword
         open={isOpenModal}

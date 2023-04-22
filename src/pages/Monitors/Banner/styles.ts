@@ -1,8 +1,5 @@
 const styles = {
   root: {
-    p: 3,
-    backgroundColor: 'white',
-    borderRadius: 2,
     textAlign: 'center',
   },
 

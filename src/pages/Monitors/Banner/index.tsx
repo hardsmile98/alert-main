@@ -3,6 +3,7 @@ import {
   Typography,
   Button,
 } from '@mui/material';
+import { Wrapper } from 'components';
 import styles from './styles';
 
 interface IProps {
@@ -11,7 +12,7 @@ interface IProps {
 
 function Banner({ onAddMonitor } : IProps) {
   return (
-    <Box sx={styles.root}>
+    <Wrapper sx={styles.root}>
       <Typography variant="h4">
         Create your first monitor
       </Typography>
@@ -23,7 +24,7 @@ function Banner({ onAddMonitor } : IProps) {
       <Button onClick={onAddMonitor}>
         Add monitor
       </Button>
-    </Box>
+    </Wrapper>
   );
 }
 

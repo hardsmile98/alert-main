@@ -15,6 +15,7 @@ import PageLoader from './PageLoader';
 const Register = React.lazy(() => import('pages/NoAuth/Register'));
 const Login = React.lazy(() => import('pages/NoAuth/Login'));
 const Monitors = React.lazy(() => import('pages/Monitors'));
+const Monitor = React.lazy(() => import('pages/Monitor'));
 const Alerts = React.lazy(() => import('pages/Alerts'));
 const Profile = React.lazy(() => import('pages/Profile'));
 
@@ -47,6 +48,7 @@ function Routes() {
           <Layout>
             <Switch>
               <Route path="/monitors" element={<Monitors />} />
+              <Route path="/monitor/:id" element={<Monitor />} />
               <Route path="/alerts" element={<Alerts />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<Navigate to="/monitors" />} />

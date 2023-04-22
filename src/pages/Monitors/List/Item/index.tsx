@@ -2,6 +2,7 @@
 import { Box, Tooltip } from '@mui/material';
 import { History as CheckIcon } from '@mui/icons-material';
 import { MonitorStatus } from 'models';
+import { Link, Wrapper } from 'components';
 import Actions from './Actions';
 import styles from './styles';
 
@@ -21,7 +22,7 @@ function Item({
   frequency,
 }: IProps) {
   return (
-    <Box sx={styles.root}>
+    <Wrapper sx={styles.root}>
       <Box sx={styles.info}>
         <Box
           component="span"
@@ -34,9 +35,12 @@ function Item({
         />
 
         <Box>
-          <Box sx={styles.name}>
+          <Link
+            to={`/monitor/${id}`}
+            sx={styles.name}
+          >
             {name}
-          </Box>
+          </Link>
 
           <Box>
             {`${status} • ${timeUpdated}`}
@@ -59,7 +63,7 @@ function Item({
           />
         </Box>
       </Box>
-    </Box>
+    </Wrapper>
   );
 }
 

@@ -4,14 +4,20 @@ import {
   AddMonitorDto,
   IBuilder,
   IMonitors,
+  Monitor,
 } from 'models';
-import { transformMonitors } from 'api/formatters';
+import { transformMonitors, transformMonitor } from 'api/formatters';
 
 export default (builder: IBuilder) => ({
   getMonitors: builder.query<IMonitors, {}>({
     query: () => '/api/monitor',
     transformResponse: transformMonitors,
     providesTags: [tags.monitors as unknown as FullTagDescription<never>],
+  }),
+
+  getMonitor: builder.query<Monitor, {}>({
+    query: (id: number) => `/api/monitor/${id}`,
+    transformResponse: transformMonitor,
   }),
 
   addMonitor: builder.mutation<{}, AddMonitorDto>({

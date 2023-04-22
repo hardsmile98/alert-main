@@ -18,31 +18,27 @@ function Menu({ onClickItem }: IProps) {
   const { pathname } = useLocation();
 
   const handleClickMenu = () => {
-    if (typeof onClickItem === 'function') {
+    if (onClickItem) {
       onClickItem();
     }
   };
 
   const handleLogout = () => {
     dispatch(logout());
-
-    handleClickMenu();
   };
 
   return (
     <MenuList sx={styles.root}>
       {ROUTES.map(({ title, path, icon }) => (
         <MenuItem
+          onClick={handleClickMenu}
           key={path}
           sx={{
             ...styles.link,
             ...(pathname === path && styles.active),
           }}
         >
-          <Link
-            to={path}
-            onClick={handleClickMenu}
-          >
+          <Link to={path}>
             <MenuIcons icon={icon} />
             {title}
           </Link>

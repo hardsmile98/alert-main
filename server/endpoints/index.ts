@@ -9,6 +9,7 @@ export default [
   { path: '/api/user/channels', method: 'delete' },
   { path: '/api/user/channels', data: 'channels.json' },
 
+  { path: '/api/monitor/:id', data: 'monitor.json' },
   { path: '/api/monitor', data: 'monitors.json' },
   { path: '/api/monitor', method: 'post' },
   { path: '/api/monitor', method: 'delete' },

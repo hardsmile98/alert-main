@@ -22,9 +22,6 @@ const pulseGreen = pulse(122, 198, 137);
 
 const styles = {
   root: {
-    p: 3,
-    backgroundColor: 'white',
-    borderRadius: 2,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -65,6 +62,12 @@ const styles = {
   name: {
     fontWeight: 'fontWeightBold',
     mb: 0.5,
+    color: 'text.primary',
+    textDecoration: 'none',
+
+    ':hover': {
+      textDecoration: 'none',
+    },
   },
 
   actions: {

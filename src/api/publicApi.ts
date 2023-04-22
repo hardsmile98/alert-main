@@ -40,4 +40,5 @@ export const {
   useAddMonitorMutation,
   useDeleteMonitorMutation,
   useChangeStatusMonitorMutation,
+  useGetMonitorQuery,
 } = publicApi;

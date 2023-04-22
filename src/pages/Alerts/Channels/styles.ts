@@ -2,17 +2,11 @@ import { SxProps } from '@mui/material';
 
 const styles = {
   noChannels: {
-    p: 3,
-    borderRadius: 2,
-    backgroundColor: 'background.paper',
     textAlign: 'center',
     color: 'text.secondary',
   },
 
   channel: {
-    p: 3,
-    borderRadius: 2,
-    backgroundColor: 'background.paper',
     mb: 1,
     display: 'flex',
     alignItems: 'center',

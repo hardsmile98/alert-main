@@ -13,6 +13,7 @@ interface Monitor {
   frequency: string
   status: MonitorStatus
   userId: number
+  checkAt: string
   createdAt: string
   updatedAt: string
 }
@@ -40,6 +41,7 @@ export type {
   AddMonitorDto,
   Monitors,
   IMonitors,
+  Monitor,
   MonitorsResponse,
   MonitorsTrasfromed,
   MonitorStatus,
