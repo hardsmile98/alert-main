@@ -1,6 +1,6 @@
 import { Box, Typography, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { Modal } from 'components';
+import { ErrorAlert, Modal } from 'components';
 import { ChannelType } from 'models';
 import { useEffect, useState } from 'react';
 import { useAddChannelMutation } from 'api/publicApi';
@@ -20,7 +20,12 @@ function AddChannel({
 
   const isDisabled = !value.length;
 
-  const [addChannel, { isLoading, isSuccess }] = useAddChannelMutation();
+  const [addChannel, {
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  }] = useAddChannelMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -60,6 +65,12 @@ function AddChannel({
             >
               Add
             </LoadingButton>
+
+            {isError && (
+              <Box mt={1}>
+                <ErrorAlert error={error} />
+              </Box>
+            )}
           </form>
         </Modal>
       );
