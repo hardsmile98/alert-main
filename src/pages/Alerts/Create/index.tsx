@@ -7,11 +7,14 @@ import {
   Box, Tabs, Tab,
 } from '@mui/material';
 import type { ChannelType } from 'models';
+import { useIsMobile } from 'hooks';
 import TabPanel from './TabPanel';
 import AddChannel from './AddChannel';
 import styles from './styles';
 
 function Create() {
+  const { isMobile } = useIsMobile();
+
   const [value, setValue] = useState(0);
   const [channelType, setChannelType] = useState<null | ChannelType>(null);
 
@@ -25,7 +28,9 @@ function Create() {
     <>
       <Box sx={styles.root}>
         <Tabs
-          orientation="vertical"
+          orientation={isMobile
+            ? 'horizontal'
+            : 'vertical'}
           variant="scrollable"
           value={value}
           onChange={handleChange}

@@ -1,3 +1,5 @@
+import { SxProps } from '@mui/material';
+
 const styles = {
   noChannels: {
     p: 3,
@@ -15,16 +17,21 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
+    flexDirection: ['column', 'row'],
+    textAlign: ['center', 'left'],
+  } as SxProps,
 
   body: {
     display: 'flex',
     alignItems: 'center',
-    mr: 1,
-  },
+    flexDirection: ['column', 'row'],
+    mr: [0, 1],
+    mb: [1, 0],
+  } as SxProps,
 
   icon: {
-    mr: 2,
+    mr: [0, 2],
+    mb: [1, 0],
     backgroundColor: 'divider',
     height: 40,
     width: 40,

@@ -1,15 +1,20 @@
+import { SxProps } from '@mui/material';
+
 const styles = {
   root: {
     flexGrow: 1,
     bgcolor: 'background.paper',
     display: 'flex',
-    height: 200,
+    minHeight: 180,
     borderRadius: 2,
-  },
+    flexDirection: ['column', 'row'],
+  } as SxProps,
 
   tabs: {
-    borderRight: 1,
-    borderColor: 'divider',
+    borderRight: [0, 1],
+    borderBottom: [1, 0],
+    borderColor: ['divider', 'divider'],
+    flexShrink: 0,
   },
 
   tab: {

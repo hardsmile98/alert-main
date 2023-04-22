@@ -1,3 +1,5 @@
+import { SxProps } from '@mui/material';
+
 const styles = {
   root: {
     p: 3,
@@ -7,19 +9,23 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     mt: 1,
-  },
+    flexDirection: ['column', 'row'],
+    textAlign: ['center', 'left'],
+  } as SxProps,
 
   info: {
     display: 'flex',
     alignItems: 'center',
-  },
+    flexDirection: ['column', 'row'],
+  } as SxProps,
 
   status: {
     display: 'block',
     width: 15,
     height: 15,
     borderRadius: '50%',
-    mr: 2,
+    mr: [0, 2],
+    mb: [1, 0],
   },
 
   name: {

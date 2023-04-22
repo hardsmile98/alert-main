@@ -1,4 +1,4 @@
-type IRouteIcon = 'monitors' | 'alerts' | 'profile';
+type IRouteIcon = 'monitors' | 'alerts' | 'profile' | 'logout';
 
 interface IRoute {
   title: string

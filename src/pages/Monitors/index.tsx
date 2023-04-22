@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import {
+  Box, Button, Typography,
+} from '@mui/material';
 import { useGetMonitorsQuery } from 'api/publicApi';
 import { PageWrapper } from 'components';
 import Banner from './Banner';
 import List from './List';
 import Create from './Create';
 import styles from './styles';
+import Limit from './Limit';
 
 function Monitors() {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -46,6 +49,12 @@ function Monitors() {
             ? <Banner onAddMonitor={handleOpenModal} />
             : <List monitors={monitors} />}
         </Box>
+
+        {isLimit && (
+          <Box sx={styles.wrap}>
+            <Limit />
+          </Box>
+        )}
       </PageWrapper>
 
       {isOpenModal && (

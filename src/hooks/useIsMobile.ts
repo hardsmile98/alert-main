@@ -1,29 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useMediaQuery } from '@mui/material';
+import theme from 'theme/theme';
 
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
-  const hasWindow = typeof window !== 'undefined';
-
-  const handleResize = () => {
-    const isMobileWidth = window.innerWidth < 900;
-
-    setIsMobile(isMobileWidth);
+  return {
+    isMobile,
+    isTablet,
   };
-
-  useEffect(() => {
-    if (hasWindow) {
-      window.addEventListener('resize', handleResize);
-    }
-
-    return () => {
-      if (hasWindow) {
-        window.removeEventListener('resize', handleResize);
-      }
-    };
-  }, [hasWindow]);
-
-  return isMobile;
 }
 
 export default useIsMobile;

@@ -1,5 +1,4 @@
 import {
-  Paper,
   Box,
   Typography,
   Button,
@@ -12,7 +11,7 @@ interface IProps {
 
 function Banner({ onAddMonitor } : IProps) {
   return (
-    <Paper sx={styles.root}>
+    <Box sx={styles.root}>
       <Typography variant="h4">
         Create your first monitor
       </Typography>
@@ -24,7 +23,7 @@ function Banner({ onAddMonitor } : IProps) {
       <Button onClick={onAddMonitor}>
         Add monitor
       </Button>
-    </Paper>
+    </Box>
   );
 }
 
