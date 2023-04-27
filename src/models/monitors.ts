@@ -1,7 +1,10 @@
+type Method = 'get' | 'post';
+
 interface AddMonitorDto {
   name: string
   url: string
   frequency: number
+  method: string
 }
 
 type MonitorStatus = 'UP' | 'DOWN' | 'PAUSE';
@@ -12,6 +15,7 @@ interface Monitor {
   url: string
   frequency: string
   status: MonitorStatus
+  method: Method
   userId: number
   checkAt: string
   createdAt: string

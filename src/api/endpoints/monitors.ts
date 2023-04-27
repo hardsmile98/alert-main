@@ -21,13 +21,16 @@ export default (builder: IBuilder) => ({
   }),
 
   addMonitor: builder.mutation<{}, AddMonitorDto>({
-    query: ({ name, url, frequency }) => ({
+    query: ({
+      name, url, frequency, method,
+    }) => ({
       url: '/api/monitor',
       method: 'POST',
       body: {
         name,
         url,
         frequency,
+        method,
       },
     }),
     invalidatesTags: [tags.monitors as unknown as FullTagDescription<never>],

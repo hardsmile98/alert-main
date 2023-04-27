@@ -92,6 +92,7 @@
       "url": "https://deniskotelev.site",
       "frequency": 10,
       "status": "UP",
+      "method": "get",
       "userId": 1,
       "checkAt": "2023-04-22T18:40:06.969Z",
       "createdAt": "2023-04-22T18:40:06.973Z",

@@ -9,17 +9,23 @@ interface IProps {
   onClose: () => void
 }
 
-const options = [
+const frequencyOptions = [
   { value: 10, title: '10 mins' },
   { value: 20, title: '20 mins' },
   { value: 30, title: '30 mins' },
   { value: 60, title: '1 hour' },
 ];
 
+const methodOptions = [
+  { value: 'get', title: 'GET' },
+  { value: 'post', title: 'POST' },
+];
+
 function Create({ open, onClose }: IProps) {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('https://');
   const [frequency, setFrequency] = useState(10);
+  const [method, setMehtod] = useState('get');
 
   const [addMonitor, {
     isLoading,
@@ -41,6 +47,7 @@ function Create({ open, onClose }: IProps) {
       url,
       name,
       frequency,
+      method,
     });
   };
 
@@ -85,7 +92,20 @@ function Create({ open, onClose }: IProps) {
           <Select
             value={frequency}
             onChange={(value) => setFrequency(Number(value))}
-            options={options}
+            options={frequencyOptions}
+            fullWidth
+          />
+        </Box>
+
+        <Box mb={1}>
+          <Typography gutterBottom>
+            Method
+          </Typography>
+
+          <Select
+            value={method}
+            onChange={(value) => setMehtod(String(value))}
+            options={methodOptions}
             fullWidth
           />
         </Box>

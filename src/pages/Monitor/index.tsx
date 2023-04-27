@@ -11,7 +11,11 @@ function Monitor() {
   const monitorId = Number(id);
   const skip = !Number.isInteger(monitorId);
 
-  const { data, isLoading, isError } = useGetMonitorQuery(monitorId, {
+  const {
+    data,
+    isLoading,
+    isError,
+  } = useGetMonitorQuery(monitorId, {
     skip,
     refetchOnMountOrArgChange: true,
   });
@@ -36,9 +40,11 @@ function Monitor() {
         Overview
       </Typography>
 
-      <Box mt={2}>
-        <Info info={info} />
-      </Box>
+      {info && (
+        <Box mt={2}>
+          <Info info={info} />
+        </Box>
+      )}
 
       <Box mt={2}>
         <ResponseTime chartData={chartData} />
