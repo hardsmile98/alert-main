@@ -5,15 +5,13 @@ import { useIsMobile } from 'hooks';
 import Menu from './Menu';
 import MobileMenu from './MobileMenu';
 import styles from './styles';
+import ChangeLanguage from './ChangeLanguage';
 
 function Navbar() {
   const { isTablet } = useIsMobile();
 
   return (
-    <Box
-      component="nav"
-      sx={styles.root}
-    >
+    <Box sx={styles.root}>
       <Link to="/">
         <Box
           sx={styles.logo}
@@ -28,6 +26,8 @@ function Navbar() {
         : (
           <Box sx={styles.menu}>
             <Menu />
+
+            <ChangeLanguage />
           </Box>
         )}
     </Box>

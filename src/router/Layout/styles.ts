@@ -13,6 +13,7 @@ const styles = {
     flexBasis: ['auto', 'auto', 280],
     flexShrink: 0,
     backgroundColor: 'white',
+    display: 'flex',
   },
 
   content: {
