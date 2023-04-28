@@ -1,34 +1,30 @@
 import { Box, ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'store/store';
-import { setLanguage } from 'store/slices/language';
+import { useTranslation } from 'react-i18next';
 import styles from './styles';
 
 type Language = 'ru' | 'en';
 
 function ChangeLanguage() {
-  const dispatch = useDispatch();
-
-  const { value } = useSelector((state: RootState) => state.language);
+  const { t, i18n } = useTranslation();
 
   const handleChange = (_: React.MouseEvent<HTMLElement, MouseEvent>, newValue: Language) => {
     if (!newValue) {
       return;
     }
 
-    dispatch(setLanguage(newValue));
+    i18n.changeLanguage(newValue);
   };
 
   return (
     <Box sx={styles.root}>
       <Box>
-        Language:
+        {`${t('main.languageTitle')}:`}
       </Box>
 
       <ToggleButtonGroup
         exclusive
         size="small"
-        value={value}
+        value={i18n.language}
         onChange={handleChange}
       >
         <ToggleButton

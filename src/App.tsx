@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import moment from 'moment';
 import theme from 'theme/theme';
 import Routes from './router/Routes';
+import './configs/i18n';
 
 moment().locale('en');
 
