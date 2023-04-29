@@ -2,7 +2,7 @@ import Link from 'components/Link';
 import { ArrowBackIos as BackIcon } from '@mui/icons-material';
 
 interface IProps {
-  buttonText?: string,
+  buttonText: string,
   to: string
 }
 
@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-function Back({ buttonText = 'Back', to }: IProps) {
+function Back({ buttonText, to }: IProps) {
   return (
     <Link
       to={to}

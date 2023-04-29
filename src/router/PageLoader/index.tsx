@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { Loader } from 'components';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   root: {
@@ -12,9 +13,11 @@ const styles = {
 };
 
 function PageLoader() {
+  const { t } = useTranslation();
+
   return (
     <Box sx={styles.root}>
-      <Loader text="Loading..." />
+      <Loader text={t('main.loading')} />
     </Box>
   );
 }

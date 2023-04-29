@@ -4,6 +4,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@mui/lab';
 import { isEmail } from 'utils/helpers';
 import logo from 'assets/images/logo.svg';
@@ -16,6 +17,8 @@ import styles from './styles';
 
 function Register() {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -67,19 +70,19 @@ function Register() {
             sx={styles.title}
             variant="h4"
           >
-            Sign up for free
+            {t('register.title')}
           </Typography>
         </Box>
 
         <form onSubmit={handleRegister}>
           <Box sx={styles.field}>
             <Typography gutterBottom>
-              First name
+              {t('register.firstName')}
             </Typography>
             <TextField
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First name"
+              placeholder={t('register.firstName')}
               fullWidth
               error={isError}
             />
@@ -87,12 +90,12 @@ function Register() {
 
           <Box sx={styles.field}>
             <Typography gutterBottom>
-              Last name
+              {t('register.lastName')}
             </Typography>
             <TextField
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              placeholder="Last name"
+              placeholder={t('register.lastName')}
               fullWidth
               error={isError}
             />
@@ -114,13 +117,13 @@ function Register() {
 
           <Box sx={styles.field}>
             <Typography gutterBottom>
-              Password
+              {t('register.password')}
             </Typography>
             <TextField
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Password"
+              placeholder={t('register.password')}
               fullWidth
               error={isError}
             />
@@ -133,7 +136,7 @@ function Register() {
             disabled={isDisabled}
             loading={isLoading}
           >
-            Sign up
+            {t('register.registerButton')}
           </LoadingButton>
 
           {isError && (
@@ -145,14 +148,14 @@ function Register() {
 
         <Box sx={styles.separator}>
           <span />
-          <p>OR</p>
+          <p>{t('register.or')}</p>
           <span />
         </Box>
 
         <Box sx={styles.link}>
-          {'Already have an account? '}
+          {`${t('register.haveAccount')} `}
           <Link to="/login">
-            Sign in
+            {t('register.signIn')}
           </Link>
         </Box>
       </Box>

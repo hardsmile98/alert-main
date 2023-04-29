@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { Warning } from '@mui/icons-material';
 import { ErrorBoundary, Loader } from 'components';
 import { Helmet } from 'react-helmet';
@@ -17,10 +18,14 @@ function PageWrapper({
   children,
   isLoading,
   isError,
-  loadingText = 'Loading...',
+  loadingText,
 }: IProps) {
+  const { t } = useTranslation();
+
   const defaultTitle = 'SiteAlert - monitors your sites';
   const newTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+
+  const defaultLoadingText = loadingText || t('main.loading');
 
   if (isError) {
     return (
@@ -48,7 +53,7 @@ function PageWrapper({
         ? (
           <Box sx={styles.loading}>
             <Loader
-              text={loadingText}
+              text={defaultLoadingText}
             />
           </Box>
         )

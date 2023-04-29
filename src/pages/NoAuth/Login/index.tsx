@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { login as setToken } from 'store/slices/auth';
 import { LoadingButton } from '@mui/lab';
 import logo from 'assets/images/logo.svg';
@@ -16,6 +17,8 @@ import styles from './styles';
 
 function Login() {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,7 +65,7 @@ function Login() {
             sx={styles.title}
             variant="h4"
           >
-            Welcome Back
+            {t('login.title')}
           </Typography>
         </Box>
 
@@ -83,13 +86,13 @@ function Login() {
 
           <Box sx={styles.field}>
             <Typography gutterBottom>
-              Password
+              {t('login.password')}
             </Typography>
             <TextField
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Password"
+              placeholder={t('login.password')}
               fullWidth
               error={isError}
             />
@@ -102,26 +105,26 @@ function Login() {
             loading={isLoading}
             disabled={isDisabled}
           >
-            Sign in
+            {t('login.loginButton')}
           </LoadingButton>
 
           {isError && (
-          <Box mt={1}>
-            <ErrorAlert error={error} />
-          </Box>
+            <Box mt={1}>
+              <ErrorAlert error={error} />
+            </Box>
           )}
         </form>
 
         <Box sx={styles.separator}>
           <span />
-          <p>OR</p>
+          <p>{t('login.or')}</p>
           <span />
         </Box>
 
         <Box sx={styles.link}>
-          {'Do not have an account? '}
+          {`${t('login.noAccount')} `}
           <Link to="/register">
-            Sign up
+            {t('login.signUp')}
           </Link>
         </Box>
       </Box>

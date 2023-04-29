@@ -2,17 +2,17 @@ import { IRoute } from 'models';
 
 const ROUTES: Array<IRoute> = [
   {
-    title: 'Monitors',
+    title: 'main.routes.monitors',
     path: '/monitors',
     icon: 'monitors',
   },
   {
-    title: 'Alerts',
+    title: 'main.routes.alerts',
     path: '/alerts',
     icon: 'alerts',
   },
   {
-    title: 'Profile',
+    title: 'main.routes.profile',
     path: '/profile',
     icon: 'profile',
   },

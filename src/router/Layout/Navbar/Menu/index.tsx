@@ -5,6 +5,7 @@ import { Link } from 'components';
 import { ROUTES } from 'constants/index';
 import { useDispatch } from 'react-redux';
 import { logout } from 'store/slices/auth';
+import { useTranslation } from 'react-i18next';
 import MenuIcons from './MenuIcons';
 import styles from './styles';
 
@@ -14,6 +15,8 @@ interface IProps {
 
 function Menu({ onClickItem }: IProps) {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const { pathname } = useLocation();
 
@@ -40,7 +43,7 @@ function Menu({ onClickItem }: IProps) {
         >
           <Link to={path}>
             <MenuIcons icon={icon} />
-            {title}
+            {t(title)}
           </Link>
         </MenuItem>
       ))}
@@ -51,7 +54,7 @@ function Menu({ onClickItem }: IProps) {
       >
         <a href="#">
           <MenuIcons icon="logout" />
-          Logout
+          {t('main.routes.logout')}
         </a>
       </MenuItem>
     </MenuList>
