@@ -31,7 +31,7 @@ function Limit() {
       </Typography>
 
       <Box color="text.secondary">
-        {t('monitors.limit.title')}
+        {t('monitors.limit.description')}
       </Box>
     </Wrapper>
   );
