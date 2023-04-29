@@ -39,7 +39,7 @@ function Data({ profile }: Props) {
           </Box>
 
           <Box>
-            <Typography variant="h6">
+            <Typography variant="h6" gutterBottom>
               {t('profile.data')}
             </Typography>
 
@@ -74,7 +74,7 @@ function Data({ profile }: Props) {
           </Box>
 
           <Box>
-            <Typography variant="h6">
+            <Typography variant="h6" gutterBottom>
               {t('profile.plan')}
             </Typography>
 
