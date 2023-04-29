@@ -4,6 +4,7 @@ import {
   Button,
 } from '@mui/material';
 import { Wrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 import styles from './styles';
 
 interface IProps {
@@ -11,18 +12,20 @@ interface IProps {
 }
 
 function Banner({ onAddMonitor } : IProps) {
+  const { t } = useTranslation();
+
   return (
     <Wrapper sx={styles.root}>
       <Typography variant="h4">
-        Create your first monitor
+        {t('monitors.noMonitors.title')}
       </Typography>
 
       <Box sx={styles.description}>
-        We will keep an eye on your server and call or message you when it goes down.
+        {t('monitors.noMonitors.description')}
       </Box>
 
       <Button onClick={onAddMonitor}>
-        Add monitor
+        {t('monitors.addMonitorButton')}
       </Button>
     </Wrapper>
   );

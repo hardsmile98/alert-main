@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import limit from 'assets/images/limit.svg';
 import { Wrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   root: {
@@ -14,6 +15,8 @@ const styles = {
 };
 
 function Limit() {
+  const { t } = useTranslation();
+
   return (
     <Wrapper sx={styles.root}>
       <Box
@@ -24,11 +27,11 @@ function Limit() {
       />
 
       <Typography variant="h4" gutterBottom>
-        Reached limit monitors
+        {t('monitors.limit.title')}
       </Typography>
 
       <Box color="text.secondary">
-        To add more monitoring upgrade your tariff plan
+        {t('monitors.limit.title')}
       </Box>
     </Wrapper>
   );

@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { useGetMonitorsQuery } from 'api/publicApi';
 import { PageWrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 import Banner from './Banner';
 import List from './List';
 import Create from './Create';
@@ -11,6 +12,8 @@ import styles from './styles';
 import Limit from './Limit';
 
 function Monitors() {
+  const { t } = useTranslation();
+
   const [isOpenModal, setOpenModal] = useState(false);
 
   const { data, isLoading, isError } = useGetMonitorsQuery({});
@@ -24,14 +27,14 @@ function Monitors() {
   return (
     <>
       <PageWrapper
-        title="Monitors"
+        title={t('monitors.title')}
         isLoading={isLoading}
         isError={isError}
       >
 
         <Box sx={styles.head}>
           <Typography variant="h4">
-            Monitors
+            {t('monitors.title')}
           </Typography>
 
           {!isNoMonitons && (
@@ -39,7 +42,7 @@ function Monitors() {
               disabled={isLimit}
               onClick={handleOpenModal}
             >
-              Add monitor
+              {t('monitors.addMonitorButton')}
             </Button>
           )}
         </Box>

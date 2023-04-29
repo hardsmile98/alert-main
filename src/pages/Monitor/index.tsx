@@ -2,10 +2,13 @@ import { Box, Typography } from '@mui/material';
 import { useGetMonitorQuery } from 'api/publicApi';
 import { PageWrapper, Back } from 'components';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Info from './Info';
 import ResponseTime from './ResponseTime';
 
 function Monitor() {
+  const { t } = useTranslation();
+
   const { id } = useParams();
 
   const monitorId = Number(id);
@@ -24,20 +27,20 @@ function Monitor() {
 
   return (
     <PageWrapper
-      title="Monitor"
+      title={t('monitor.title')}
       isLoading={isLoading}
       isError={isError || skip}
     >
       <Back
         to="/monitors"
-        buttonText="Monitors"
+        buttonText={t('monitor.back')}
       />
 
       <Typography
         variant="h4"
         mt={1}
       >
-        Overview
+        {t('monitor.overview')}
       </Typography>
 
       {info && (

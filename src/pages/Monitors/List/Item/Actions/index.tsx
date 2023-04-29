@@ -11,6 +11,7 @@ import {
   useChangeStatusMonitorMutation,
   useDeleteMonitorMutation,
 } from 'api/publicApi';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   item: {
@@ -26,6 +27,8 @@ interface IProps {
 }
 
 function Actions({ id, status }: IProps) {
+  const { t } = useTranslation();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
@@ -82,12 +85,12 @@ function Actions({ id, status }: IProps) {
           {status === 'PAUSE' ? (
             <>
               <StartIcon />
-              Start
+              {t('monitors.actions.start')}
             </>
           ) : (
             <>
               <PauseIcon />
-              Pause
+              {t('monitors.actions.pause')}
             </>
           )}
         </MenuItem>
@@ -98,7 +101,7 @@ function Actions({ id, status }: IProps) {
           disabled={isLoading}
         >
           <DeleteIcon />
-          Delete
+          {t('monitors.actions.delete')}
         </MenuItem>
       </Menu>
     </div>

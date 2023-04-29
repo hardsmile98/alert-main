@@ -13,6 +13,7 @@ import notFound from 'assets/images/notFound.svg';
 import { Wrapper } from 'components';
 import { ChartData } from 'models';
 import { Box, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 ChartJS.register(
   CategoryScale,
@@ -40,6 +41,8 @@ interface IProps {
 }
 
 function ResponseTime({ chartData }: IProps) {
+  const { t } = useTranslation();
+
   if (!chartData?.length) {
     return (
       <Wrapper sx={{ textAlign: 'center' }}>
@@ -51,7 +54,7 @@ function ResponseTime({ chartData }: IProps) {
         />
 
         <Typography variant="h4" gutterBottom>
-          No response time statistics
+          {t('monitor.noStatistics')}
         </Typography>
       </Wrapper>
     );
@@ -66,7 +69,7 @@ function ResponseTime({ chartData }: IProps) {
           labels: chartData.map((item) => item.label),
           datasets: [
             {
-              label: 'Response time',
+              label: t('monitor.responseTime'),
               data: chartData.map((item) => item.value),
               borderColor: 'rgb(255, 99, 132)',
               backgroundColor: 'rgba(255, 99, 132, 0.5)',

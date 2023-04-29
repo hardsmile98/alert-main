@@ -3,6 +3,7 @@ import { Box, TextField, Typography } from '@mui/material';
 import { useAddMonitorMutation } from 'api/publicApi';
 import { ErrorAlert, Modal, Select } from 'components';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
   open: boolean
@@ -22,6 +23,8 @@ const methodOptions = [
 ];
 
 function Create({ open, onClose }: IProps) {
+  const { t } = useTranslation();
+
   const [name, setName] = useState('');
   const [url, setUrl] = useState('https://');
   const [frequency, setFrequency] = useState(10);
@@ -55,12 +58,12 @@ function Create({ open, onClose }: IProps) {
     <Modal
       open={open}
       onClose={onClose}
-      title="Create monitor"
+      title={t('monitors.modal.title')}
     >
       <form onSubmit={() => {}}>
         <Box mb={1}>
           <Typography gutterBottom>
-            Name
+            {t('monitors.modal.name')}
           </Typography>
 
           <TextField
@@ -86,7 +89,7 @@ function Create({ open, onClose }: IProps) {
 
         <Box mb={1}>
           <Typography gutterBottom>
-            Frequency
+            {t('monitors.modal.frequency')}
           </Typography>
 
           <Select
@@ -99,7 +102,7 @@ function Create({ open, onClose }: IProps) {
 
         <Box mb={1}>
           <Typography gutterBottom>
-            Method
+            {t('monitors.modal.method')}
           </Typography>
 
           <Select
@@ -118,7 +121,7 @@ function Create({ open, onClose }: IProps) {
           disabled={isDisabled}
           loading={isLoading}
         >
-          Submit
+          {t('monitors.modal.submit')}
         </LoadingButton>
 
         {isError && (

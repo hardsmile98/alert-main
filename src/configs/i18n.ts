@@ -8,6 +8,8 @@ import {
   register,
   profile,
   alerts,
+  monitor,
+  monitors,
 } from 'locales';
 
 i18n
@@ -27,6 +29,8 @@ i18n
           register: register.en,
           profile: profile.en,
           alerts: alerts.en,
+          monitor: monitor.en,
+          monitors: monitors.en,
         },
       },
 
@@ -37,6 +41,8 @@ i18n
           register: register.ru,
           profile: profile.ru,
           alerts: alerts.ru,
+          monitor: monitor.ru,
+          monitors: monitors.ru,
         },
       },
     },

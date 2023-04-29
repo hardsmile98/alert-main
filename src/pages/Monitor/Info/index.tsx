@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import { Monitor } from 'models';
+import { useTranslation } from 'react-i18next';
 import Item from './item';
 
 interface IProp {
@@ -7,6 +8,8 @@ interface IProp {
 }
 
 function Info({ info }: IProp) {
+  const { t } = useTranslation();
+
   const {
     name,
     url,
@@ -19,7 +22,7 @@ function Info({ info }: IProp) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="Name" value={name} />
+        <Item title={t('monitor.name')} value={name} />
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
@@ -27,19 +30,19 @@ function Info({ info }: IProp) {
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="Mehtod" value={method.toUpperCase()} />
+        <Item title={t('monitor.method')} value={method.toUpperCase()} />
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="Frequency" value={`Every ${frequency} mins`} />
+        <Item title={t('monitor.frequency')} value={`Every ${frequency} mins`} />
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="Created at" value={createdAt} />
+        <Item title={t('monitor.createdAt')} value={createdAt} />
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="Last checked at" value={checkAt} />
+        <Item title={t('monitor.checkedAt')} value={checkAt} />
       </Grid>
     </Grid>
   );

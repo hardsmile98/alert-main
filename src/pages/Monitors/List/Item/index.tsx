@@ -3,6 +3,7 @@ import { Box, Tooltip } from '@mui/material';
 import { History as CheckIcon } from '@mui/icons-material';
 import { MonitorStatus } from 'models';
 import { Link, Wrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 import Actions from './Actions';
 import styles from './styles';
 
@@ -21,6 +22,8 @@ function Item({
   timeUpdated,
   frequency,
 }: IProps) {
+  const { t } = useTranslation();
+
   return (
     <Wrapper sx={styles.root}>
       <Box sx={styles.info}>
@@ -49,7 +52,7 @@ function Item({
       </Box>
 
       <Box sx={styles.actions}>
-        <Tooltip title="Monitoring frequency">
+        <Tooltip title={t('monitors.tooltip')}>
           <Box sx={styles.checkTime}>
             <CheckIcon />
             {frequency}
