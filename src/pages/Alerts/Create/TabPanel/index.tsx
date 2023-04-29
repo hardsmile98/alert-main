@@ -1,4 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 interface TabPanelProps {
   index: number
@@ -21,6 +22,8 @@ const styles = {
 };
 
 function TabPanel(props: TabPanelProps) {
+  const { t } = useTranslation();
+
   const {
     value,
     index,
@@ -52,7 +55,7 @@ function TabPanel(props: TabPanelProps) {
           sx={styles.button}
           onClick={onAddChannel}
         >
-          Add channel
+          {t('alerts.addChannel')}
         </Button>
       </Box>
       )}

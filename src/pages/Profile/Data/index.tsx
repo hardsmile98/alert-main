@@ -7,6 +7,7 @@ import {
 
 import { ProfileResponse } from 'models';
 import { Wrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 import ChangePassword from './ChangePassword';
 import styles from './styles';
 
@@ -15,6 +16,8 @@ interface Props {
 }
 
 function Data({ profile }: Props) {
+  const { t } = useTranslation();
+
   const [isOpenModal, setOpenModal] = useState(false);
 
   const handleCloseModal = () => setOpenModal(false);
@@ -37,21 +40,21 @@ function Data({ profile }: Props) {
 
           <Box>
             <Typography variant="h6">
-              Data
+              {t('profile.data')}
             </Typography>
 
             <Box sx={styles.fieild}>
-              {' E-mail: '}
+              {'E-mail: '}
               {email}
             </Box>
 
             <Box sx={styles.fieild}>
-              {'First name: '}
+              {`${t('profile.firstName')}: `}
               {firstName}
             </Box>
 
             <Box sx={styles.fieild}>
-              {'Last name: '}
+              {`${t('profile.lastName')}: `}
               {lastName}
             </Box>
 
@@ -60,7 +63,7 @@ function Data({ profile }: Props) {
               variant="outlined"
               onClick={handleOpenModal}
             >
-              Change password
+              {t('profile.changePassword')}
             </Button>
           </Box>
         </Box>
@@ -72,11 +75,11 @@ function Data({ profile }: Props) {
 
           <Box>
             <Typography variant="h6">
-              Plan
+              {t('profile.plan')}
             </Typography>
 
             <Box sx={styles.fieild}>
-              {'Type: '}
+              {`${t('profile.type')}: `}
               {plan}
             </Box>
           </Box>

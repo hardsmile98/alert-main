@@ -4,6 +4,7 @@ import { ErrorAlert, Modal } from 'components';
 import { ChannelType } from 'models';
 import { useEffect, useState } from 'react';
 import { useAddChannelMutation } from 'api/publicApi';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   isOpen: boolean,
@@ -16,6 +17,8 @@ function AddChannel({
   onClose,
   channelType,
 }: Props) {
+  const { t } = useTranslation();
+
   const [value, setValue] = useState('');
 
   const isDisabled = !value.length;
@@ -39,7 +42,7 @@ function AddChannel({
         <Modal
           open={isOpen}
           onClose={onClose}
-          title="Add email notification channel"
+          title={t('alerts.email.modalTitle')}
         >
           <form onSubmit={() => {}}>
             <Box mb={1}>
@@ -63,7 +66,7 @@ function AddChannel({
               disabled={isDisabled}
               loading={isLoading}
             >
-              Add
+              {t('alerts.addChannel')}
             </LoadingButton>
 
             {isError && (

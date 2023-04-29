@@ -7,6 +7,7 @@ import {
 } from '@mui/icons-material';
 import { useDeleteChannelMutation } from 'api/publicApi';
 import { Wrapper } from 'components';
+import { useTranslation } from 'react-i18next';
 import styles from './styles';
 
 interface Props {
@@ -29,6 +30,8 @@ function Icon({ type }: IconProps) {
 }
 
 function Channels({ channels }: Props) {
+  const { t } = useTranslation();
+
   const [deleteChannel, { isLoading }] = useDeleteChannelMutation();
 
   const handleDeleteChannel = (id: number) => {
@@ -38,7 +41,7 @@ function Channels({ channels }: Props) {
   if (!channels?.length) {
     return (
       <Wrapper sx={styles.noChannels}>
-        Add first notification channel
+        {t('alerts.noChannels')}
       </Wrapper>
     );
   }

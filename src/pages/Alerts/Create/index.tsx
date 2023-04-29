@@ -3,6 +3,7 @@ import {
   AlternateEmail as EmailIcon,
   Telegram as TelegramIcon,
 } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 import {
   Box, Tabs, Tab,
 } from '@mui/material';
@@ -13,6 +14,8 @@ import AddChannel from './AddChannel';
 import styles from './styles';
 
 function Create() {
+  const { t } = useTranslation();
+
   const { isMobile } = useIsMobile();
 
   const [value, setValue] = useState(0);
@@ -52,16 +55,16 @@ function Create() {
         <TabPanel
           value={value}
           index={0}
-          title="Email Notifications"
-          description="We will send email notifications when something went wrong."
+          title={t('alerts.email.title')}
+          description={t('alerts.email.description')}
           onAddChannel={() => setChannelType('email')}
         />
 
         <TabPanel
           value={value}
           index={1}
-          title="Telegram Notifications"
-          description="Sorry, this type of notification is not available yet."
+          title={t('alerts.telegram.title')}
+          description={t('alerts.telegram.description')}
           onAddChannel={() => setChannelType('telegram')}
           enabled={false}
         />

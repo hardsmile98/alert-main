@@ -6,6 +6,8 @@ import {
   main,
   login,
   register,
+  profile,
+  alerts,
 } from 'locales';
 
 i18n
@@ -23,6 +25,8 @@ i18n
           main: main.en,
           login: login.en,
           register: register.en,
+          profile: profile.en,
+          alerts: alerts.en,
         },
       },
 
@@ -31,6 +35,8 @@ i18n
           main: main.ru,
           login: login.ru,
           register: register.ru,
+          profile: profile.ru,
+          alerts: alerts.ru,
         },
       },
     },

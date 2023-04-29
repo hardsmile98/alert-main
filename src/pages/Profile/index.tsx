@@ -1,19 +1,22 @@
 import { Box, Typography } from '@mui/material';
 import { PageWrapper } from 'components';
 import { useGetProfileQuery } from 'api/publicApi';
+import { useTranslation } from 'react-i18next';
 import Data from './Data';
 
 function Profile() {
+  const { t } = useTranslation();
+
   const { data, isLoading, isError } = useGetProfileQuery({});
 
   return (
     <PageWrapper
       isLoading={isLoading}
       isError={isError}
-      title="Profile"
+      title={t('profile.title')}
     >
       <Typography variant="h4">
-        My Profile
+        {t('profile.title')}
       </Typography>
 
       <Box mt={2}>

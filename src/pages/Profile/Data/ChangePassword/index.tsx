@@ -3,6 +3,7 @@ import { Box, TextField, Typography } from '@mui/material';
 import { useChangePasswordMutation } from 'api/publicApi';
 import { ErrorAlert, Modal } from 'components';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
   open: boolean
@@ -10,6 +11,8 @@ interface IProps {
 }
 
 function ChangePassword({ open, onClose }: IProps) {
+  const { t } = useTranslation();
+
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
@@ -41,18 +44,18 @@ function ChangePassword({ open, onClose }: IProps) {
     <Modal
       onClose={onClose}
       open={open}
-      title="Change password"
+      title={t('profile.modal.title')}
     >
       <form onSubmit={handleChangePassword}>
         <Box mb={1}>
           <Typography gutterBottom>
-            Current password
+            {t('profile.modal.currentPassword')}
           </Typography>
 
           <TextField
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
-            placeholder="Current password"
+            placeholder={t('profile.modal.currentPassword')}
             type="password"
             fullWidth
           />
@@ -60,13 +63,13 @@ function ChangePassword({ open, onClose }: IProps) {
 
         <Box mb={1}>
           <Typography gutterBottom>
-            New password
+            {t('profile.modal.newPassword')}
           </Typography>
 
           <TextField
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            placeholder="New password"
+            placeholder={t('profile.modal.newPassword')}
             type="password"
             fullWidth
           />
@@ -79,7 +82,7 @@ function ChangePassword({ open, onClose }: IProps) {
           loading={isLoading}
           disabled={isDisabled}
         >
-          Change
+          {t('profile.modal.button')}
         </LoadingButton>
 
         {isError && (
