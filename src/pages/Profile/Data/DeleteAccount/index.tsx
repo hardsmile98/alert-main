@@ -2,7 +2,7 @@ import { ErrorAlert, Modal } from 'components';
 import { Box, Button } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import { useDeleteAccountMutation } from 'api/publicApi';
+import { publicApi, useDeleteAccountMutation } from 'api/publicApi';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from 'store/slices/auth';
@@ -26,6 +26,7 @@ function DeleteAccount({ open, onClose }: IProps) {
 
   useEffect(() => {
     if (isSuccess) {
+      dispatch(publicApi.util.resetApiState());
       dispatch(logout());
     }
   }, [isSuccess]);

@@ -5,6 +5,7 @@ import { Link } from 'components';
 import { ROUTES } from 'constants/index';
 import { useDispatch } from 'react-redux';
 import { logout } from 'store/slices/auth';
+import { publicApi } from 'api/publicApi';
 import { useTranslation } from 'react-i18next';
 import MenuIcons from './MenuIcons';
 import styles from './styles';
@@ -27,6 +28,7 @@ function Menu({ onClickItem }: IProps) {
   };
 
   const handleLogout = () => {
+    dispatch(publicApi.util.resetApiState());
     dispatch(logout());
   };
 

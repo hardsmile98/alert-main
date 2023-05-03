@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { useCheckMeQuery } from 'api/publicApi';
+import { publicApi, useCheckMeQuery } from 'api/publicApi';
 import { logout } from 'store/slices/auth';
 import {
   BrowserRouter,
@@ -31,6 +31,7 @@ function Routes() {
 
   useEffect(() => {
     if (isError) {
+      dispatch(publicApi.util.resetApiState());
       dispatch(logout());
     }
   }, [isError]);
