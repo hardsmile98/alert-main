@@ -26,7 +26,7 @@ function Info({ info }: IProp) {
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>
-        <Item title="URL" value={url} />
+        <Item title="URL" isLink value={url} />
       </Grid>
 
       <Grid item xs={12} sm={6} md={6} lg={4}>

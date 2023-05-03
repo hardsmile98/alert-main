@@ -44,18 +44,18 @@ function ChangePassword({ open, onClose }: IProps) {
     <Modal
       onClose={onClose}
       open={open}
-      title={t('profile.modal.title')}
+      title={t('profile.changePasswordModal.title')}
     >
       <form onSubmit={handleChangePassword}>
         <Box mb={1}>
           <Typography gutterBottom>
-            {t('profile.modal.currentPassword')}
+            {t('profile.changePasswordModal.currentPassword')}
           </Typography>
 
           <TextField
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
-            placeholder={t('profile.modal.currentPassword')}
+            placeholder={t('profile.changePasswordModal.currentPassword')}
             type="password"
             fullWidth
           />
@@ -63,13 +63,13 @@ function ChangePassword({ open, onClose }: IProps) {
 
         <Box mb={1}>
           <Typography gutterBottom>
-            {t('profile.modal.newPassword')}
+            {t('profile.changePasswordModal.newPassword')}
           </Typography>
 
           <TextField
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            placeholder={t('profile.modal.newPassword')}
+            placeholder={t('profile.changePasswordModal.newPassword')}
             type="password"
             fullWidth
           />
@@ -82,7 +82,7 @@ function ChangePassword({ open, onClose }: IProps) {
           loading={isLoading}
           disabled={isDisabled}
         >
-          {t('profile.modal.button')}
+          {t('profile.changePasswordModal.button')}
         </LoadingButton>
 
         {isError && (

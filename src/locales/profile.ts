@@ -5,13 +5,20 @@ const profile = {
     firstName: 'Имя',
     lastName: 'Фамилия',
     changePassword: 'Изменить пароль',
+    deleteAccount: 'Удалить аккаунт',
     plan: 'Тариф',
     type: 'Тип',
-    modal: {
+    changePasswordModal: {
       title: 'Изменение пароля',
       currentPassword: 'Текущий пароль',
       newPassword: 'Новый пароль',
       button: 'Изменить',
+    },
+    deleteAccountModal: {
+      title: 'Удалени акканута',
+      text: 'Вы действительно хотите удалить аккаунт?',
+      okButton: 'Да',
+      noButton: 'Нет',
     },
   },
 
@@ -21,13 +28,20 @@ const profile = {
     firstName: 'First name',
     lastName: 'Last name',
     changePassword: 'Change password',
+    deleteAccount: 'Delete account',
     plan: 'Plan',
     type: 'Type',
-    modal: {
+    changePasswordModal: {
       title: 'Change password',
       currentPassword: 'Current password',
       newPassword: 'New password',
       button: 'Change',
+    },
+    deleteAccountModal: {
+      title: 'Delete account',
+      text: 'Are you sure you want to delete your account?',
+      okButton: 'Yes',
+      noButton: 'No',
     },
   },
 };

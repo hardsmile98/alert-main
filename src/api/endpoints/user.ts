@@ -15,6 +15,13 @@ export default (builder: IBuilder) => ({
     query: () => '/api/user/me',
   }),
 
+  deleteAccount: builder.mutation({
+    query: () => ({
+      url: '/api/user/me',
+      method: 'DELETE',
+    }),
+  }),
+
   getProfile: builder.query<ProfileResponse, {}>({
     query: () => '/api/user/profile',
   }),

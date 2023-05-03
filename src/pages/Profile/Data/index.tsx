@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Typography,
+} from '@mui/material';
 import {
   PersonOutline as ProfileIcon,
   SettingsOutlined as PlanIcon,
@@ -9,19 +13,21 @@ import { ProfileResponse } from 'models';
 import { Wrapper } from 'components';
 import { useTranslation } from 'react-i18next';
 import ChangePassword from './ChangePassword';
+import DeleteAccount from './DeleteAccount';
 import styles from './styles';
 
 interface Props {
   profile: ProfileResponse | undefined
 }
 
+type Modal = 'changePassword' | 'deleteAccount';
+
 function Data({ profile }: Props) {
   const { t } = useTranslation();
 
-  const [isOpenModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState<null | Modal>(null);
 
-  const handleCloseModal = () => setOpenModal(false);
-  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(null);
 
   const {
     email,
@@ -58,13 +64,25 @@ function Data({ profile }: Props) {
               {lastName}
             </Box>
 
-            <Button
-              sx={styles.changeButton}
-              variant="outlined"
-              onClick={handleOpenModal}
-            >
-              {t('profile.changePassword')}
-            </Button>
+            <Box sx={styles.buttons}>
+              <Button
+                sx={styles.button}
+                variant="outlined"
+                onClick={() => setOpenModal('changePassword')}
+              >
+                {t('profile.changePassword')}
+              </Button>
+
+              <Button
+                sx={styles.button}
+                variant="outlined"
+                color="error"
+                onClick={() => setOpenModal('deleteAccount')}
+              >
+                {t('profile.deleteAccount')}
+              </Button>
+            </Box>
+
           </Box>
         </Box>
 
@@ -86,10 +104,19 @@ function Data({ profile }: Props) {
         </Box>
       </Wrapper>
 
-      <ChangePassword
-        open={isOpenModal}
-        onClose={handleCloseModal}
-      />
+      {openModal !== null && (
+        <>
+          <ChangePassword
+            open={openModal === 'changePassword'}
+            onClose={handleCloseModal}
+          />
+
+          <DeleteAccount
+            open={openModal === 'deleteAccount'}
+            onClose={handleCloseModal}
+          />
+        </>
+      )}
     </>
   );
 }

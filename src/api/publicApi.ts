@@ -29,6 +29,7 @@ export const {
 
   // user
   useCheckMeQuery,
+  useDeleteAccountMutation,
   useChangePasswordMutation,
   useGetProfileQuery,
   useGetChannelsQuery,

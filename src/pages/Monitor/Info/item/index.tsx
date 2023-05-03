@@ -4,9 +4,10 @@ import { Wrapper } from 'components';
 interface IProps {
   title: string
   value: string
+  isLink?: boolean
 }
 
-function Item({ title, value }: IProps) {
+function Item({ title, value, isLink }: IProps) {
   return (
     <Wrapper>
       <Box
@@ -16,9 +17,23 @@ function Item({ title, value }: IProps) {
         {title}
       </Box>
 
-      <Box color="text.secondary">
-        {value}
-      </Box>
+      {isLink
+        ? (
+          <Box
+            color="text.secondary"
+            component="a"
+            href={value}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {value}
+          </Box>
+        )
+        : (
+          <Box color="text.secondary">
+            {value}
+          </Box>
+        )}
     </Wrapper>
   );
 }

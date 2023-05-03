@@ -27,7 +27,12 @@ const styles = {
     justifyContent: 'center',
   },
 
-  changeButton: {
+  buttons: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  button: {
     mt: 1,
   },
 };
